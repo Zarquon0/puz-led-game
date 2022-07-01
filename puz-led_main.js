@@ -4,7 +4,7 @@ DOM interactions and in-game logic. */
 //help button functionality
 const help = document.getElementById('help');
 const help_popup = () => {
-    if (`${help.src}` === 'doubts-button.png') {
+    if (`${help.src}` === 'https://github.com/Zarquon0/puz-led-game/blob/main/doubts-button.png') {
         document.getElementsByTagName('main')[0].style.display = 'none';
         document.getElementsByTagName('article')[0].style.display = 'block';
         help.src = 'close.png';
