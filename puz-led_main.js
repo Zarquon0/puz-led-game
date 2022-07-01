@@ -251,8 +251,9 @@ document.getElementById('retry').addEventListener('click',restart);
 const seed_form = document.getElementById('seed_form');
 const submit_button = document.getElementById('submit');
 const puzzle_regeneration = () => {
-    new_seed = parseInt(seed_form.elements[0].value);
-    if (`${new_seed}` !== 'NaN' && new_seed.length<=8) {
+    let new_seed = parseInt(seed_form.elements[0].value);
+    let new_seed_string = `${new_seed}`;
+    if (new_seed_string !== 'NaN' && new_seed_string.length<=8) {
         generate_puzzle(new_seed);
         render_puzzle();
         to_default();
