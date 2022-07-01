@@ -4,14 +4,14 @@ DOM interactions and in-game logic. */
 //help button functionality
 const help = document.getElementById('help');
 const help_popup = () => {
-    if (`${help.src}` === 'file:///Users/zarquon/Mountain/media/doubts-button.png') {
+    if (`${help.src}` === 'doubts-button.png') {
         document.getElementsByTagName('main')[0].style.display = 'none';
         document.getElementsByTagName('article')[0].style.display = 'block';
-        help.src = 'media/close.png';
+        help.src = 'close.png';
     } else {
         document.getElementsByTagName('main')[0].style.display = 'flex';
         document.getElementsByTagName('article')[0].style.display = 'none';
-        help.src = 'media/doubts-button.png';
+        help.src = 'doubts-button.png';
     };
 };
 help.addEventListener('click',help_popup);
