@@ -1,0 +1,226 @@
+:root {
+    --game-size: min(78vh,100vw);
+    --main-width: calc(var(--game-size) + 15ch);
+    --main-height: var(--game-size);
+    --victory-height: var(--main-height);
+    --game-color: rgb(199, 199, 199);
+    --tile-color: whitesmoke;
+    --center-color: rgb(84, 84, 84);
+    --victory-color: rgba(188, 252, 142, 0.5);
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    box-sizing: border-box;
+    font-family: 'Cantarell';
+}
+header {
+    width: 100%;
+    height: 12vh;
+    border-bottom: 1px solid black;
+    text-align: center;
+    display: flex;
+}
+body {
+    height: 88vh;
+}
+main {
+    height: var(--main-height);
+    width: var(--main-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+article {
+    display: none;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 800;
+}
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+h3 {
+    display: inline;
+}
+hr {
+    width: 10ch;
+    margin: 5vh auto;
+}
+.vr {
+    width: 1px;
+    height: 80%;
+    background-color: black;
+    display: none;
+    margin: 0 calc(var(--game-size) / 40);
+}
+.box {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tile-color);
+    font-size: 30px;
+    margin: 5%;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+}
+.blank {
+    background-color: rgb(167, 167, 167);
+    margin: 5%;
+    border-radius: 10px;
+}
+.how_to_play {
+    width: 20%;
+    margin: 2vh auto;
+    display: block;
+}
+#completed_game {
+    width: 70%;
+}
+#enjoy {
+    margin: 5vh auto;
+    width: fit-content;
+}
+#credits {
+    display: inline;
+}
+#game {
+    display: grid;
+    margin: 5vh 0;
+    grid-template: repeat(3,1fr) / repeat(3,1fr);
+    background-color: var(--game-color);
+    height: var(--game-size);
+    width: var(--game-size);
+    flex-shrink: 0;
+}
+#sidebar {
+    width: 15ch;
+    height: var(--game-size);
+    margin: 5vh 0;
+    background-color: var(--game-color);
+    border-left: 3px solid var(--center-color);
+    flex-shrink: 0;
+    display: grid;
+}
+#inner_sidebar {
+    border-radius: 10px;
+    margin: 5%;
+    background-color: var(--tile-color);
+    line-height: 5vh;
+    overflow: scroll;
+}
+#logo {
+    font-family: 'Fascinate';
+    font-size: 8vh;
+    margin: 2vh;
+}
+#logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+#help {
+    height: 10vh;
+    margin-left: 1vh;
+    margin-top: 1vh;
+}
+#retry {
+    width: 5ch;
+    margin: 5vh 4ch;
+}
+#help:hover {
+    border: 1px solid black;
+}
+#retry:hover {
+    transform: rotate(25deg);
+}
+#seed_input {
+    display: flex;
+}
+#seed {
+    width: 80%;
+}
+#submit {
+    width: 20%;
+    min-width: 3ch;
+}
+#buffer {
+    height: 10vh;
+    width: 10vh;
+    margin-right: 1vh;
+    margin-top: 1vh;
+}
+#center {
+    background-color: rgb(84, 84, 84);
+    grid-area: 2/2/3/3;
+    border-radius: 10px;
+    margin: 5%;
+}
+#victory {
+    background-color: var(--victory-color);
+    height: var(--victory-height);
+    width: var(--main-width);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: var(--victory-height);
+    margin: 5vh auto;
+    z-index: 4;
+}
+h1.victory {
+    font-family: 'Satisfy';
+    font-weight: 800;
+    font-size: calc(var(--game-size) / 5);
+    margin: 0 calc(var(--game-size) / 3);
+}
+
+@media only screen and (max-width: 750px) {
+    :root {
+        --sidebar-height: calc(var(--game-size) / 3);
+        --main-width: var(--game-size);
+        --main-height: calc(var(--game-size) + var(--sidebar-height));
+    }
+    main {
+        flex-direction: column-reverse;
+    }
+    hr {
+        display: none;
+    }
+    .vr {
+        display: inline-block;
+    }
+    #game {
+        margin: 0;
+    }
+    #sidebar {
+        border-bottom: 3px solid var(--center-color);
+        border-left: none;
+        width: var(--main-width);
+        height: var(--sidebar-height);
+        margin: 0;
+
+    }
+    #inner_sidebar {
+        margin: 2.5%;
+        display: flex;
+        align-items: center;
+    }
+    #stats {
+        display: inline-block;
+        min-width: 8ch;
+    }
+    #retry {
+        display: inline-block;
+    }
+    #victory {
+        bottom: calc(var(--main-height) + 5vh);
+    }
+}

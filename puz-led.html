@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Puz-led | Web Game</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Fascinate&family=Montserrat:wght@600&family=PT+Mono&family=Satisfy&display=swap" rel="stylesheet"/>
+        <link href="puz-led.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+        <script id="boxes" type="text/x-handlebars-template">
+            <div id="center"></div>
+            {{#each blanks}}
+                <div class="blank" id="{{this.number}}"></div>
+            {{/each}}
+            {{#each box}}
+                <div class="box" id="{{this.number}}">
+                    {{this.letter}} <span class="height">({{this.index}})</span>
+                </div>
+            {{/each}}
+        </script>
+    </head>
+    <body>
+        <header>
+            <img id='help' src='media/doubts-button.png'/>
+            <div id="logo_container">
+                <span id="logo">Puz-led</span>
+            </div>
+            <div id="buffer"></div>
+        </header>
+        <main>
+            <div id="game"></div>
+            <div id="sidebar">
+                <div id="inner_sidebar">
+                    <div id="stats">
+                        <p>Word: <span id="word"></span></p>
+                        <p>Moves: <span id="moves">0</span></p>
+                        <p>Attempt: <span id="attempts">1</span></p>
+                    </div>
+                    <div class="vr"></div>
+                    <hr/>
+                    <img id='retry' src='media/redo.png'/>
+                    <div class="vr"></div>
+                    <hr/>
+                    <form id="seed_form">
+                        <label for="seed">Unique Seed:</label>
+                        <div id="seed_input">
+                            <input type="text" name="seed" id="seed" pattern="[0-9]{0,8}"/>
+                            <input type="button" value="Go" id="submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <article>
+            <h1>How to Play:</h1>
+            <p>&emsp; Puz-led is a sliding tile puzzle game in which the player attempts to spell out a given word by moving around lettered tiles. The puzzle comes in the shape of a three by three grid where the center square is omitted. There are ten tiles scattered about this grid, each one containing a letter. Some of the tiles are stacked on top of each other, and the top tile on any given stack will also display the height of its stack in parentheses. On the side, a bar displays a few pieces of information and a couple of important functions. One of these pieces of information is the word, which will be a seven letter word with the middle three letters omitted. The goal of the game is to rearrange the tiles to spell out this seven letter word. A solved puzzle might look like this:</p>
+            <img class="how_to_play" id="completed_game" src="./media/completed_game.png"/>
+            <p>&emsp; Tiles can be moved to adjacent boxes on the grid (except the center) by clicking on them and then clicking on the desired adjacent box. However, tiles belonging to stacks that are smaller or the same size as a given adjacent stack cannot move to the top of that stack. Every time you move a tile, the move counter will encrement by one. Generally, you should try to solve each puzzle in as few moves as possible.</p>
+            <h2>Restart Button</h2>
+            <img class="how_to_play" src="./media/redo.png"/>
+            <p>&emsp; The restart button (as illustrated above) provides some help if you get stuck. If you ever realize that you've moved the tiles around such that it would be impossible to form the word or are just having trouble figuring out what the word is, click this button. Doing so will reset the puzzle to its original state and reveal another letter in the word. However, it will also encrement the attempts counter by one. As with moves, generally, you should try to solve each puzzle in as few attempts as possible.</p>
+            <h2>Seeding a Game</h2>
+            <img class="how_to_play" src="./media/seed.png"/>
+            <p>&emsp; The website automatically creates a new puzzle every day, however, if you want to solve a different puzzle inputting a custom seed in the input box and then clicking the Go button will generate a new game based off of your seed. A seed must be made of only numbers and must be no longer than eight characters or no puzzle will generate. Do not seed with 0 or multiples of pi unless you want to get weird results.</p>
+            <h1 id="enjoy">Enjoy!</h1>
+            <h3>Credits:</h3><p id="credits">&nbsp; Freepik and Flaticon images are used in this website.</p>
+        </article>
+        <script src="puzzle_generator.js"></script>
+        <script src="puz-led_main.js"></script>
+    </body>
+</html>
