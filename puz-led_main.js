@@ -8,11 +8,13 @@ const help_popup = () => {
     if (switch1 === 'on') {
         document.getElementsByTagName('main')[0].style.display = 'none';
         document.getElementsByTagName('article')[0].style.display = 'block';
+        document.getElementById('vic_holder').style.display = 'none';
         help.src = 'close.png';
         switch1 = 'off';
     } else {
-        document.getElementsByTagName('main')[0].style.display = 'flex';
-        document.getElementsByTagName('article')[0].style.display = 'none';
+        document.getElementsByTagName('main')[0].style.display = '';
+        document.getElementsByTagName('article')[0].style.display = '';
+        document.getElementById('vic_holder').style.display = '';
         help.src = 'doubts-button.png';
         switch1 = 'on';
     };
