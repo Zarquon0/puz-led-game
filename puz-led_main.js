@@ -80,7 +80,7 @@ const victory = () => {
     let vic_screen = document.createElement('div');
     vic_screen.id = 'victory';
     vic_screen.innerHTML = `<h1 class='victory'>Solved!</h1> <p class='victory'>It took you ${moves} moves and ${attempts} attempts</p>`;
-    document.body.appendChild(vic_screen);
+    document.getElementById('vic_holder').appendChild(vic_screen);
 }
 const victory_check = () => {
     let boxes_by_position = []
