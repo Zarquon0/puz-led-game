@@ -14,7 +14,7 @@ const generate_puzzle = (seed) => {
     //generate random numbers stemming from the seed
     const random_seeded = (length) => {
         let day = new Date(Date().slice(4,24)).getDay();
-        let num = Math.sin(seed*day)**2 * 10000;
+        let num = Math.sin(seed*(day+1))**2 * 10000;
         let seed_draft = num - Math.floor(num);
         seed = seed_draft*10000;
         return Math.floor(seed_draft*length);
